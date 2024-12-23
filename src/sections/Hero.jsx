@@ -1,6 +1,6 @@
 import React from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
-import { PerspectiveCamera } from '@react-three/drei';
+import { PerspectiveCamera, Ring } from '@react-three/drei';
 import Mydesk from '../components/mydesk';
 import { Suspense } from 'react';
 import CanvasLoader from '../components/CanvasLoader.jsx';
@@ -9,6 +9,8 @@ import { calculateSizes } from "../constants/index.js";
 import Target from '../components/Target.jsx';
 import ReactLogo from '../components/ReactLogo.jsx';
 import Cube from '../components/Cube.jsx';
+import Rings from '../components/Rings.jsx';
+import HeroCamera from '../components/HeroCamera.jsx';
 const Hero = () => {
 
 
@@ -30,18 +32,21 @@ const Hero = () => {
             <Canvas className="w-full h-full">
                 <Suspense fallback={<CanvasLoader />}>               
                 <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-                <Mydesk 
-                // scale={0.5} 
-                // position={[0, 0, 0]}
-                // rotation={[0, -Math.PI / 2, 0]}
-                position={sizes.deskPosition}
-                rotation={[0, -Math.PI / 2, 0]}
-                scale={sizes.deskScale}
-                />
+                <HeroCamera>
+                  <Mydesk 
+                  // scale={0.5} 
+                  // position={[0, 0, 0]}
+                  // rotation={[0, -Math.PI / 2, 0]}
+                  position={sizes.deskPosition}
+                  rotation={[0, -Math.PI / 2, 0]}
+                  scale={sizes.deskScale}
+                  />
+                </HeroCamera>
                 <group>
-                  <Target position={sizes.targetPosition} />
+                  <Target position={sizes.targetPosition} scale={1.5}/>
                   <ReactLogo position={sizes.reactLogoPosition} />
                   <Cube position={sizes.cubePosition} /> 
+                  <Rings position={sizes.ringPosition} />
                 </group>
                 <ambientLight intensity={1} />
                 <directionalLight position={[10, 10, 10]} intensity={0.5} />

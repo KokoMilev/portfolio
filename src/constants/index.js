@@ -250,10 +250,10 @@ export const calculateSizes = (isSmall, isMobileHor, isMobileVer, isTablet) => {
   return {
     deskScale: isSmall ? 0.6 : isMobileHor ? 1.0 : 1.2,
     deskPosition: isSmall ? [1, -4, 0] : isMobileHor ? [1.5, -7, 0] : isMobileVer ? [1.5, -5, 0] : isTablet ? [1.8, -10, 0] : [1.8, -10, 0],
-    cubePosition: isSmall ? [4, -5, 0] : isMobileHor ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
-    reactLogoPosition: isSmall ? [3, 4, 0] : isMobileHor ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
-    ringPosition: isSmall ? [-5, 7, 0] : isMobileHor ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],
-    targetPosition: isSmall ? [-5, -10, -10] : isMobileHor ? [-9, -10, -10] : isTablet ? [-11, -7, -10] : [-13, -13, -10],
+    cubePosition: isSmall ? [4, -5, 0] : isMobileHor ? [15, -6.55, 0] : isTablet ? [15, -6.5, 0] : [15, -6.5, 0],
+    reactLogoPosition: isSmall ? [3, 4, 0] : isMobileHor ? [5, 4, 0] : isTablet ? [5, 4, 0] : [5, 3, 0],
+    ringPosition: isSmall ? [20, 0, 0] : isMobileHor ? [-25, 17, 0] : isTablet ? [-20, 18, 0] : [-24, 18, 0],
+    targetPosition: isSmall ? [-10, -10, -10] : isMobileHor ? [-20, -10, -10] : isTablet ? [-20, -10, -10] : [-20, -10, -10],
   };
 };
 
