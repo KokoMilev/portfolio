@@ -18,30 +18,48 @@ const About = () => {
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <img src="/assets/grid1.png" alt="grid 1" className="w-full sm:h-[276px] h-fit object-contain" />
+                        <img src="/assets/cartoonMe.png" alt="grid 1" className="w-full sm:h-[276px] h-fit object-contain" />
 
                         <div>
                             <p className="grid-headtext">Hi, I'm Kaloyan</p>
-                            <p className="grid-subtext">Computer Science and Engineering Graduate</p>
+                            <p className="grid-subtext">Motivated Computer Science student at <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" class="modern-link1">TU/e</a> with a strong foundation in data analytics, algorithms,
+                            and software development. Experienced in problem-solving, programming, and adapting to new
+                            environments through hands-on projects and professional roles at <a href="https://www.asml.com" target="_blank" rel="noreferrer" class="modern-link2">ASML</a>. I thrive on leveraging technology to tackle real-world challenges, combining skills in machine learning, data processing, and cutting-edge programming. With a deep interest in robotics, embedded systems, and financial markets, I bring a disciplined work ethic and a collaborative mindset to every opportunity.
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <img src="/assets/grid2.png" alt="grid 2" className="w-full sm:h-[276px] h-fit object-contain" />
+                        <img src="/assets/languageMe.png" alt="grid 2" className="w-full sm:h-[276px] h-fit object-contain" />
 
                         <div>
                             <p className="grid-headtext">Tech Stack</p>
-                            <p className="grid-subtext">React, Next.js, Tailwind CSS, Three.js</p>
+                            <p className="grid-subtext">
+                            I have strong skills in Python and Java for backend development and problem-solving, along with experience in React, Next.js, and Tailwind CSS for creating scalable and engaging user interfaces. I also enjoy working with Three.js for 3D visualizations and am proficient in TypeScript and C/C++, showcasing my versatility. I'm always excited to explore and learn new technologies to enhance my expertise.</p>
                         </div>
                     </div>
                 </div>
                 <div className="col-span-1 xl:row-span-4">
-                    <div className="grid-container" style={{ overflow: 'hidden' }}>
-                        <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
-                            <Globe
-                                heigh={326}
-                                width={326}
+                    <div className="grid-container"
+                     style={{overflow: 'hidden',}}>
+                        {/* <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center"> */}
+                        <div
+                            className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center"
+                            style={{
+                                position: 'relative',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <Globe style={{
+                                // size: '10%',
+                                // overflow: 'hidden',
+                                // maxWidth: '326px',
+                                // maxHeight: '326px',
+                                // margin: '0 auto',
+                            }}
+                                // heigh={326}
+                                // width={326}
                                 backgroundColor='rgba(0, 0, 0, 0)'
                                 backgroundImageOpacity={0.5}
                                 showAtmosphere
@@ -61,8 +79,7 @@ const About = () => {
                             //     maxDistance: 700,
                             // }}
                             // cameraOptions={{
-                            //     position: { x: 0, y: 0, z: 0 }, // Adjust z to set initial distance
-                            //     fov: 0,
+                            //     position: { x: 0, y: 0, z: 10 }
                             //   }}
                             />
                         </div>

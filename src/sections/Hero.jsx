@@ -53,7 +53,7 @@ const Hero = () => {
                 </Suspense>
             </Canvas>
         </div>
-        <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
+        <div className="absolute bottom-0 left-0 right-0 w-full z-10 c-space">
           <a href="#contact" className="w-fit">
             <Buttom name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96"/>
           </a>
