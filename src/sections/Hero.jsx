@@ -11,14 +11,14 @@ import ReactLogo from '../components/ReactLogo.jsx';
 import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
+import Buttom from '../components/Buttom.jsx';
 const Hero = () => {
 
 
   const isSmall = useMediaQuery({maxWidth: 440});
-  const isMobileHor = useMediaQuery({maxWidth: 768});
-  const isMobileVer = useMediaQuery({maxWidth: 768, maxHeight: 1024});
-  const isTablet = useMediaQuery({maxWidth: 1024});
-  const sizes = calculateSizes(isSmall, isMobileHor, isMobileVer, isTablet);
+  const isMobile = useMediaQuery({maxWidth: 768});
+  const isTablet = useMediaQuery({minWidth: 768,maxWidth: 1024});
+  const sizes = calculateSizes(isSmall, isMobile, isTablet);
   
   return (
     <section className="min-h-screen w-full flex flex-col relative">
@@ -52,6 +52,11 @@ const Hero = () => {
                 <directionalLight position={[10, 10, 10]} intensity={0.5} />
                 </Suspense>
             </Canvas>
+        </div>
+        <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space">
+          <a href="#contact" className="w-fit">
+            <Buttom name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96"/>
+          </a>
         </div>
     </section>
   )
