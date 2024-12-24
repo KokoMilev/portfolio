@@ -15,7 +15,7 @@ const About = () => {
 
     useEffect(() => {
         if (globeEl.current) {
-            globeEl.current.pointOfView({ lat: 30, lng: 5, altitude: 5 });
+            globeEl.current.pointOfView({ lat: 30, lng: 5, altitude: 2 });
         }
     }, [globeEl]);
 
@@ -57,13 +57,11 @@ const About = () => {
                                 overflow: 'hidden',
                             }}
                         >
-                            <Globe style={{
-
-                            }}
+                            <Globe
+                                height={220}
+                                width={220}
                                 backgroundColor='rgba(0, 0, 0, 0)'
                                 backgroundImageOpacity={0.5}
-                                arcAltitude={null}
-                                arcAltitudeAutoScale={0.1}
                                 showAtmosphere
                                 showGraticules
                                 globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
@@ -75,14 +73,6 @@ const About = () => {
                                     color: "white",
                                     size: 25,
                                 }]}
-                            // controlsOptions={{
-                            //     enableZoom: true,
-                            //     minDistance: 350,
-                            //     maxDistance: 700,
-                            // }}
-                            // cameraOptions={{
-                            //     position: { x: 0, y: 0, z: 10 }
-                            //   }}
                             ref={globeEl}
                             />
                         </div>

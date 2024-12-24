@@ -96,10 +96,10 @@ export const myProjects = [
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
   return {
     deskScale: isSmall ? 0.6 : isMobile ? 1.0 : 1.2,
-    deskPosition: isSmall ? [1, -4, 0] : isMobile ? [1.5, -5, 0] : isTablet ? [1.8, -10, 0] : [1.8, -10, 0],
+    deskPosition: isSmall ? [1, -4, 0] : isMobile ? [1.5, 30, 0] : isTablet ? [1.8, -10, 0] : [1.8, -10, 0],
     cubePosition: isSmall ? [4, -8, 0] : isMobile ? [15, -6.55, 0] : isTablet ? [15, -6.5, 0] : [15, -6.5, 0],
-    reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [5, 3, 0],
-    ringPosition: isSmall ? [20, 0, 0] : isMobile ? [-25, 17, 0] : isTablet ? [-20, 18, 0] : [-24, 18, 0],
-    targetPosition: isSmall ? [-10, -10, -10] : isMobile ? [-20, -10, -10] : isTablet ? [-20, -10, -10] : [-20, -10, -10],
+    reactLogoPosition: isSmall ? [-4, -1, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [5, 3, 0],
+    ringPosition: isSmall ? [-6, 3, 0] : isMobile ? [-25, 17, 0] : isTablet ? [-20, 18, 0] : [-24, 18, 0],
+    targetPosition: isSmall ? [-3.5, -12.5, -10] : isMobile ? [-20, -10, -10] : isTablet ? [-20, -10, -10] : [-20, -10, -10],
   };
 };
