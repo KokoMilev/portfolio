@@ -21,7 +21,7 @@ const Hero = () => {
   const sizes = calculateSizes(isSmall, isMobile, isTablet);
   
   return (
-    <section className="min-h-screen w-full flex flex-col relative">
+    <section className="min-h-screen w-full flex flex-col relative" id='home'>
         <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 c-space gap-3">
             <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">Hi, I am Kaloyan <span className="waving-hand">👋</span></p>
             <p className="hero_tag text-gray_gradient">Computer Science and Engineering Graduate</p>
@@ -53,9 +53,9 @@ const Hero = () => {
                 </Suspense>
             </Canvas>
         </div>
-        <div className="absolute bottom-0 left-0 right-0 w-full z-10 c-space">
-          <a href="#about" className="w-fit">
-            <Buttom name="Let's work together" isBeam containerClass="sm:w-fit w-full sm:min-w-96"/>
+        <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center">
+          <a href="#about" className="w-auto px-4 py-2 rounded-lg text-white">
+            <Buttom name="Let's work together" isBeam containerClass="sm:w-auto w-auto px-4 py-2"/>
           </a>
         </div>
     </section>
