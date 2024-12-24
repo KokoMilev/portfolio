@@ -63,7 +63,7 @@ export const myProjects = [
     subdesc:
       'Powered by AWS Lambda, DynamoDB, Kotlin, and GPT-3.5, the platform ensures secure, scalable, and efficient performance. Unlike traditional self-paced apps, Python Classroom emphasizes accountability and human interaction, fostering a motivating and personalized learning experience.',
     href: 'https://drive.google.com/file/d/1pnm9DRFdVHYygAJBPdSOHA1UzNCcYEPk/view?usp=sharing',
-    texture: '/textures/project/project1.mp4',
+    texture: '/textures/project/classroom_done.mp4',
     logo: '/assets/PythonClassroomLogo.png',
     logoStyle: {
       backgroundColor: '#0E1F38',
@@ -100,7 +100,7 @@ export const myProjects = [
     subdesc:
       'Built with robust technologies such as Raspberry Pi 3b, Arduino Uno R3, ultrasonic and color sensors, and custom motor-driven mechanisms, this system is designed for reliability, scalability, and seamless integration into modern industrial processes.',
     href: 'https://github.com/KokoMilev/DBL-Embedded-Systems',
-    texture: '/textures/project/project4.mp4',
+    texture: '/textures/project/embedded_done.mp4',
     logo: '/assets/robotlogosmall.png',
     logoStyle: {
       backgroundColor: '#0E1F38',
