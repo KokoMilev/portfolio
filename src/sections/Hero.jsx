@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, Ring, useProgress } from '@react-three/drei';
-import Mydesk from '../components/mydesk';
+import Mydesk from '../components/Mydesk.jsx';
 import { Suspense } from 'react';
 import CanvasLoader from '../components/CanvasLoader.jsx';
 import { useMediaQuery } from 'react-responsive';
@@ -27,29 +27,6 @@ const AnimatedCamera = ({ startAnimation }) => {
     }
   });
 
-
-  // Ease animation 
-// const easeOutQuad = (t) => {
-//   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-// };
-
-
-// const AnimatedCamera = ({ startAnimation }) => {
-//   const cameraRef = useRef();
-//   useFrame(({ clock }) => {
-//     if (cameraRef.current && startAnimation) {
-//       const elapsedTime = clock.getElapsedTime();
-//       const duration = 3; // Animation duration (in seconds)
-
-//       if (elapsedTime < duration) {
-//         const t = elapsedTime / duration; // Normalize elapsed time (0 to 1)
-//         const easedT = easeOutQuad(t); // EaseOutQuad easing
-
-//         // Smooth position and rotation animations
-//         cameraRef.current.position.z = 30 - easedT * 10; // Start at 30, end at 10
-//       }
-//     }
-//   });
 return <PerspectiveCamera makeDefault ref={cameraRef} position={[0, 0, 30]} />;
 };
 const Hero = () => {
@@ -68,10 +45,6 @@ const Hero = () => {
 
   useEffect(() => {
     if (progress === 100) {
-      // Play sound immediately
-      const sound = new Audio('/assets/zoom.mp3');
-      sound.play().catch((err) => console.error('Audio playback error:', err));
-  
       // Wait 1 second and start the animation
       const timer = setTimeout(() => {
         setStartAnimation(true);
@@ -116,7 +89,7 @@ const Hero = () => {
                   <Rings position={sizes.ringPosition} />
                 </group>
                 <ambientLight intensity={1} />
-                <directionalLight position={[10, 10, 10]} intensity={0.5} castShadow={false}/>
+                <directionalLight position={[20, 10, 10]} intensity={0.8} castShadow={false}/>
                 </Suspense>
             </Canvas>
         </div>
