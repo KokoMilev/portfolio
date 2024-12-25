@@ -6,7 +6,12 @@ const NavItems = () => {
     return (
         <ul className="nav-ul">
             {navLinks.map(({id, href, name}) => (
-                <li key={id} className="nav-li">
+                <li key={id} className="nav-li"
+                onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(href).scrollIntoView({ behavior: "smooth" }); // Button fix
+                  }}
+                >
                     <a href={href} className="nav-li_a"
                         onClick={() => {}}>
                         {name}
