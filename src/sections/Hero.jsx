@@ -16,21 +16,42 @@ import Buttom from '../components/Buttom.jsx';
 
 const AnimatedCamera = ({ startAnimation }) => {
   const cameraRef = useRef();
-
   useFrame(({ clock }) => {
     if (cameraRef.current && startAnimation) {
       const elapsedTime = clock.getElapsedTime();
-
-      if (elapsedTime < 4) {
-        cameraRef.current.position.z = 40 - elapsedTime * 8; // Move closer
-        cameraRef.current.rotation.x = Math.sin(elapsedTime) * 0.1; // Small tilt
+              
+      if (elapsedTime < 3.2) {
+        cameraRef.current.position.z = 43 - elapsedTime * 8; // Move closer
+        
       }
     }
   });
 
-  return <PerspectiveCamera makeDefault ref={cameraRef} position={[0, 0, 30]} />;
-};
 
+  // Ease animation 
+// const easeOutQuad = (t) => {
+//   return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+// };
+
+
+// const AnimatedCamera = ({ startAnimation }) => {
+//   const cameraRef = useRef();
+//   useFrame(({ clock }) => {
+//     if (cameraRef.current && startAnimation) {
+//       const elapsedTime = clock.getElapsedTime();
+//       const duration = 3; // Animation duration (in seconds)
+
+//       if (elapsedTime < duration) {
+//         const t = elapsedTime / duration; // Normalize elapsed time (0 to 1)
+//         const easedT = easeOutQuad(t); // EaseOutQuad easing
+
+//         // Smooth position and rotation animations
+//         cameraRef.current.position.z = 30 - easedT * 10; // Start at 30, end at 10
+//       }
+//     }
+//   });
+return <PerspectiveCamera makeDefault ref={cameraRef} position={[0, 0, 30]} />;
+};
 const Hero = () => {
 
 
@@ -47,14 +68,19 @@ const Hero = () => {
 
   useEffect(() => {
     if (progress === 100) {
-      // Wait 1 second after models have fully loaded
+      // Play sound immediately
+      const sound = new Audio('/assets/zoom.mp3');
+      sound.play().catch((err) => console.error('Audio playback error:', err));
+  
+      // Wait 1 second and start the animation
       const timer = setTimeout(() => {
         setStartAnimation(true);
       }, 1000);
-
+  
       return () => clearTimeout(timer); // Cleanup timer on unmount
     }
   }, [progress]);
+  
 
   return (
     <section className="w-full flex flex-col relative"
@@ -90,7 +116,7 @@ const Hero = () => {
                   <Rings position={sizes.ringPosition} />
                 </group>
                 <ambientLight intensity={1} />
-                <directionalLight position={[10, 10, 10]} intensity={0.5} />
+                <directionalLight position={[10, 10, 10]} intensity={0.5} castShadow={false}/>
                 </Suspense>
             </Canvas>
         </div>
