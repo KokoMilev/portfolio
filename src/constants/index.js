@@ -93,13 +93,15 @@ export const myProjects = [
   },
 ];
 
-export const calculateSizes = (isSmall, isMobile, isTablet) => {
+export const calculateSizes = (isSmall, isMobile, isTablet, isMobileHorizontal) => {
   return {
-    deskScale: isSmall ? 0.6 : isMobile ? 1.0 : 1.2,
-    deskPosition: isSmall ? [1, -4, 0] : isMobile ? [1.5, 30, 0] : isTablet ? [1.8, -10, 0] : [1.8, -10, 0],
-    cubePosition: isSmall ? [4, -8, 0] : isMobile ? [15, -6.55, 0] : isTablet ? [15, -6.5, 0] : [15, -6.5, 0],
-    reactLogoPosition: isSmall ? [-4, -1, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [5, 3, 0],
-    ringPosition: isSmall ? [-6, 3, 0] : isMobile ? [-25, 17, 0] : isTablet ? [-20, 18, 0] : [-24, 18, 0],
-    targetPosition: isSmall ? [-3.5, -12.5, -10] : isMobile ? [-20, -10, -10] : isTablet ? [-20, -10, -10] : [-20, -10, -10],
+    deskScale: isSmall ? 0.5 : isMobile ? 0.8 : isMobile ? 0.8 : 1,
+    deskPosition: isSmall ? [1, -3.5, 0] : isMobile ? [2, -1.5, 0] : isMobileHorizontal ? [1, -5, 0] : [1, -5.5, 0],
+    cubePosition: isSmall ? [4, -6, 0] : isMobile ? [0, 5, 0] : isMobileHorizontal ? [5, -10, 0] : isTablet ? [10, -5, 0] : [9, -10, 0],
+    reactLogoPosition: isSmall ? [-5, 0, 0] : isMobile ? [0, 0, 0] : isMobileHorizontal ? [-2, 0, 0] : isTablet ? [0, 0, 0] : [-3, 0, 0],
+    ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isMobileHorizontal ? [-18, 7, 0] : isTablet ? [-12, 4, 0] : [-24, 10, 0],
+    targetPosition: isSmall ? [-5, -9, -10] : isMobile ? [-9, -10, -10] : isMobileHorizontal ? [-8, -13, -10] : isTablet ? [-13, -7, -10] :  [-13, -13, -10],
   };
 };
+
+

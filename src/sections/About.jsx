@@ -42,7 +42,7 @@ const About = () => {
                         <div>
                             <p className="grid-headtext">Tech Stack</p>
                             <p className="grid-subtext">
-                            I have strong skills in Python and Java for backend development and problem-solving, along with experience in React, Next.js, and Tailwind CSS for creating scalable and engaging user interfaces. I also enjoy working with Three.js for 3D visualizations and am proficient in JavaScript/TypeScript and C/C++, showcasing my versatility. I'm always excited to explore and learn new technologies to enhance my expertise.</p>
+                            I have strong skills in Python and Java for backend development and problem-solving, along with experience in React, Next.js, and Tailwind CSS for creating scalable and engaging user interfaces. I also enjoy working with Three.js for 3D visualizations and have solid understanding of JavaScript/TypeScript and C/C++, showcasing my versatility. I'm always excited to explore and learn new technologies to enhance my expertise.</p>
                         </div>
                     </div>
                 </div>
