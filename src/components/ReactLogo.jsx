@@ -12,7 +12,7 @@ const ReactLogo = (props) => {
           material={materials['Material.002']}
           position={[14, 4, 11]}
           rotation={[0, 0, -Math.PI / 2]}
-          scale={[0.39, 0.39, 0.5]}
+          scale={[0.2, 0.2, 0.3]}
         />
       </group>
     </Float>

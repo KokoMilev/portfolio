@@ -1,10 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Globe from 'react-globe.gl'
 import Buttom from '../components/Buttom'
-
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
-
+    const globeEl = React.useRef();
     const handleCopy = () => {
         navigator.clipboard.writeText('kaloyandimov.milev@gmail.com');
         setHasCopied(true);
@@ -13,6 +12,13 @@ const About = () => {
             setHasCopied(false)
         }, 2000);
     }
+
+    useEffect(() => {
+        if (globeEl.current) {
+            globeEl.current.pointOfView({ lat: 30, lng: 5, altitude: 2 });
+        }
+    }, [globeEl]);
+
     return (
         <section className="c-space my-20" id="about">
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
@@ -22,9 +28,9 @@ const About = () => {
 
                         <div>
                             <p className="grid-headtext">Hi, I'm Kaloyan</p>
-                            <p className="grid-subtext">Motivated Computer Science student at <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" class="modern-link1">TU/e</a> with a strong foundation in data analytics, algorithms,
+                            <p className="grid-subtext">Motivated Computer Science student at <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" className="modern-link1">TU/e</a> with a strong foundation in data analytics, algorithms,
                             and software development. Experienced in problem-solving, programming, and adapting to new
-                            environments through hands-on projects and professional roles at <a href="https://www.asml.com" target="_blank" rel="noreferrer" class="modern-link2">ASML</a>. I thrive on leveraging technology to tackle real-world challenges, combining skills in machine learning, data processing, and cutting-edge programming. With a deep interest in robotics, embedded systems, and financial markets, I bring a disciplined work ethic and a collaborative mindset to every opportunity.
+                            environments through hands-on projects and professional roles at <a href="https://www.asml.com" target="_blank" rel="noreferrer" className="modern-link2">ASML</a>. I thrive on leveraging technology to tackle real-world challenges, combining skills in machine learning, data processing, and cutting-edge programming. With a deep interest in robotics, embedded systems, and financial markets, I bring a disciplined work ethic and a collaborative mindset to every opportunity.
                             </p>
                         </div>
                     </div>
@@ -36,7 +42,7 @@ const About = () => {
                         <div>
                             <p className="grid-headtext">Tech Stack</p>
                             <p className="grid-subtext">
-                            I have strong skills in Python and Java for backend development and problem-solving, along with experience in React, Next.js, and Tailwind CSS for creating scalable and engaging user interfaces. I also enjoy working with Three.js for 3D visualizations and am proficient in TypeScript and C/C++, showcasing my versatility. I'm always excited to explore and learn new technologies to enhance my expertise.</p>
+                            I have strong skills in Python and Java for backend development and problem-solving, along with experience in React, Next.js, and Tailwind CSS for creating scalable and engaging user interfaces. I also enjoy working with Three.js for 3D visualizations and have solid understanding of JavaScript/TypeScript and C/C++, showcasing my versatility. I'm always excited to explore and learn new technologies to enhance my expertise.</p>
                         </div>
                     </div>
                 </div>
@@ -51,15 +57,9 @@ const About = () => {
                                 overflow: 'hidden',
                             }}
                         >
-                            <Globe style={{
-                                // size: '10%',
-                                // overflow: 'hidden',
-                                // maxWidth: '326px',
-                                // maxHeight: '326px',
-                                // margin: '0 auto',
-                            }}
-                                // heigh={326}
-                                // width={326}
+                            <Globe
+                                height={220}
+                                width={220}
                                 backgroundColor='rgba(0, 0, 0, 0)'
                                 backgroundImageOpacity={0.5}
                                 showAtmosphere
@@ -73,21 +73,16 @@ const About = () => {
                                     color: "white",
                                     size: 25,
                                 }]}
-                            // controlsOptions={{
-                            //     enableZoom: true,
-                            //     minDistance: 350,
-                            //     maxDistance: 700,
-                            // }}
-                            // cameraOptions={{
-                            //     position: { x: 0, y: 0, z: 10 }
-                            //   }}
+                            ref={globeEl}
                             />
                         </div>
                         <div>
                             <p className='grid-headtext'>
                                 I work remotely across most timezones.</p>
                             <p className='grid-subtext'>I'm based in Netherlands, with remote work available.</p>
-                            <Buttom name="Contact me" isBeam containerClass="w-full mt-10" />                            
+                            <a href="#contact" className="w-auto px-4 py-2 rounded-lg text-white">
+                            <Buttom name="Contact me" isBeam containerClass="w-full mt-10" /> 
+                            </a>                           
                         </div>
                     </div>
                 </div>
