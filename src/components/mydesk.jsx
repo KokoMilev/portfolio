@@ -10,7 +10,7 @@ const Mydesk = (props) => {
   const monitortxt = useTexture('/assets/monitor.png')
   return (
     <group {...props} dispose={null}>
-      <group rotation={[-Math.PI / 2, 0, 1.7]} scale={4} position={[-2.2, -3.2, -4]}>
+      <group rotation={[-Math.PI / 2, 0, 1.7]} scale={4} position={[-2.2, -3.2, -3]}>
         <group rotation={[Math.PI / 2, 0, 0]}>
           <group position={[-1.145, -2.841, -1.506]} scale={[1, 1, 0.876]}>
             <mesh
