@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import {navLinks} from "../constants/index.js"
 import closeIcon from "../assets/close.svg"
 import menuIcon from "../assets/menu.svg"
@@ -23,10 +23,24 @@ const NavItems = () => {
 }
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const navbarRef = useRef();
     const toggleMenu = () => setIsOpen((prevIsOpen) => !prevIsOpen);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-black/90">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto" ref={navbarRef}>
             <div className="flex justify-between items-center py-5 mx-auto c-space">
                 <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
                 Kaloyan
