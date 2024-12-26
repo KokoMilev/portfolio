@@ -95,12 +95,12 @@ export const myProjects = [
 
 export const calculateSizes = (isSmall, isMobile, isTablet, isMobileHorizontal) => {
   return {
-    deskScale: isSmall ? 0.5 : isMobile ? 0.8 : isMobile ? 0.8 : 1,
-    deskPosition: isSmall ? [1, -3.5, 0] : isMobile ? [2, -1.5, 0] : isMobileHorizontal ? [1, -5, 0] : [1, -5.5, 0],
-    cubePosition: isSmall ? [4, -6, 0] : isMobile ? [0, 5, 0] : isMobileHorizontal ? [5, -10, 0] : isTablet ? [10, -5, 0] : [9, -10, 0],
-    reactLogoPosition: isSmall ? [-5, 0, 0] : isMobile ? [0, 0, 0] : isMobileHorizontal ? [-2, 0, 0] : isTablet ? [0, 0, 0] : [-3, 0, 0],
-    ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isMobileHorizontal ? [-18, 7, 0] : isTablet ? [-12, 4, 0] : [-24, 10, 0],
-    targetPosition: isSmall ? [-5, -9, -10] : isMobile ? [-9, -10, -10] : isMobileHorizontal ? [-8, -13, -10] : isTablet ? [-13, -7, -10] :  [-13, -13, -10],
+    deskScale: isSmall ? 0.5 : isMobile ? 0.7 : isMobile ? 0.8 : 1,
+    deskPosition: isSmall ? [1, -3.5, 0] : isMobile ? [1.3, -5, 0] : isMobileHorizontal ? [1, -5, 0] : [1, -5.5, 0],
+    cubePosition: isSmall ? [4, -6, 0] : isMobile ? [5, -10, 0] : isMobileHorizontal ? [5, -10, 0] : isTablet ? [10, -5, 0] : [9, -10, 0],
+    reactLogoPosition: isSmall ? [-5, 0, 0] : isMobile ? [-3, 0, 0] : isMobileHorizontal ? [-2, 0, 0] : isTablet ? [0, 0, 0] : [-3, 0, 0],
+    ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-13, 6, 0] : isMobileHorizontal ? [-18, 7, 0] : isTablet ? [-12, 4, 0] : [-24, 10, 0],
+    targetPosition: isSmall ? [-5, -9, -10] : isMobile ? [-6, -15, -10] : isMobileHorizontal ? [-8, -13, -10] : isTablet ? [-13, -7, -10] :  [-13, -13, -10],
   };
 };
 

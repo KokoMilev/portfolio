@@ -80,7 +80,9 @@ const Projects = () => {
                                 </group>
                             </Suspense>
                         </Center>
-                        <OrbitControls maxPolarAngle={Math.PI / 2} enableZoom={false} />
+                        <OrbitControls
+                         maxAzimuthAngle={Math.PI / 4}  maxPolarAngle={Math.PI / 2} enableZoom={false} 
+                         enablePan={false} />
                     </Canvas>
                 </div>
             </div>
