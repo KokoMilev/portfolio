@@ -1,4 +1,4 @@
-@import url('https://fonts.cdnfonts.com/css/general-sans');
+@import url("https://fonts.cdnfonts.com/css/general-sans");
 
 @tailwind base;
 @tailwind components;
@@ -10,7 +10,7 @@
 
 body {
   background: #010103;
-  font-family: 'General Sans', sans-serif;
+  font-family: "General Sans", sans-serif;
 }
 
 @layer utilities {
@@ -153,30 +153,30 @@ body {
     @apply w-12 h-12 rounded-full flex justify-center items-center bg-black-300 border border-black-200;
   }
 }
-  .modern-link1 {
-    text-decoration: none; /* Remove default underline */
-    color: lightcoral; /* Modern blue color */
-    font-weight: bold; /* Make the word bold */
-    border-bottom: 2px solid transparent; /* Add a subtle underline effect */
-    transition: all 0.3s ease; /* Smooth hover effect */
-  }
+.modern-link1 {
+  text-decoration: none; /* Remove default underline */
+  color: lightcoral; /* Modern blue color */
+  font-weight: bold; /* Make the word bold */
+  border-bottom: 2px solid transparent; /* Add a subtle underline effect */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
 
-  .modern-link1:hover {
-    color: lightcoral; /* Slightly darker blue on hover */
-    border-bottom: 2px solid lightcoral; /* Show underline on hover */
-  }
-  .modern-link2 {
-    text-decoration: none; /* Remove default underline */
-    color: #4A90E2; /* Modern blue color */
-    font-weight: bold; /* Make the word bold */
-    border-bottom: 2px solid transparent; /* Add a subtle underline effect */
-    transition: all 0.3s ease; /* Smooth hover effect */
-  }
+.modern-link1:hover {
+  color: lightcoral; /* Slightly darker blue on hover */
+  border-bottom: 2px solid lightcoral; /* Show underline on hover */
+}
+.modern-link2 {
+  text-decoration: none; /* Remove default underline */
+  color: #4a90e2; /* Modern blue color */
+  font-weight: bold; /* Make the word bold */
+  border-bottom: 2px solid transparent; /* Add a subtle underline effect */
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
 
-  .modern-link2:hover {
-    color: #4A90E2; /* Slightly darker blue on hover */
-    border-bottom: 2px solid #4A90E2; /* Show underline on hover */
-  }
+.modern-link2:hover {
+  color: #4a90e2; /* Slightly darker blue on hover */
+  border-bottom: 2px solid #4a90e2; /* Show underline on hover */
+}
 .waving-hand {
   animation-name: wave-animation;
   animation-duration: 2.5s;

@@ -65,7 +65,7 @@ const Hero = () => {
   >
         <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 mb-20 c-space gap-3">
             <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">Hi, I am Kaloyan <span className="waving-hand">👋</span></p>
-            <p className="hero_tag text-gray_gradient">Computer Science and Engineering Graduate</p>
+            <p className="hero_tag text-gray_gradient">Software Engineer | Computer Science and Engineering Graduate (TU/e, 2025)</p>
         </div>
 
         <div className='w-full h-full absolute inset-0'>

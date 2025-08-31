@@ -91,7 +91,75 @@ export const myProjects = [
       },
     ],
   },
+  {
+    title: 'Vault Unlock Mini-Game',
+    desc:
+      'A fast, interactive vault-opening game built with Pixi.js and GSAP. Randomized 3-step combination, tactile handle input, polished door + shadow animation, and responsive crop-fill background.',
+    subdesc:
+      'Inputs are debounced and state-guarded to prevent race conditions during transitions. Combination length, timings, and assets are configurable in src/main.ts. Designed for crisp visuals across aspect ratios.',
+    href: 'https://github.com/KokoMilev/vault-unlock-mini-game',
+    texture: '/textures/project/vault_done.mp4',
+    logo: '/assets/vaultLogo.png',
+    logoStyle: {
+      backgroundColor: '#0E1F38',
+      border: '0.2px solid #0E2D58',
+      boxShadow: '0px 0px 60px 0px #2F67B64D',
+    },
+    spotlight: '/assets/spotlight3.png',
+    tags: [
+      { id: 1, name: 'Pixi.js', path: '/assets/pixiLogo.png' },
+      { id: 2, name: 'GSAP', path: '/assets/gsapLogo.png' },
+      { id: 3, name: 'TypeScript', path: '/assets/typescriptLogo.png' },
+      { id: 4, name: 'Vite', path: '/assets/viteLogo.png' },
+    ],
+  },
+  {
+    title: 'SVG Snake Game',
+    desc:
+      'Modern Snake built with TypeScript, SVG, and D3.js. Responsive board, skins, power-ups, smooth animations, full audio, and an in-game menu with rules and settings.',
+    subdesc:
+      'SVG rendering via D3 keeps graphics crisp at any DPI. Resize edge cases and rapid start inputs are handled with debounced events and transition state guards. Local storage persists scores and preferences.',
+    href: 'https://github.com/KokoMilev/SVG-Snake-Game',
+    texture: '/textures/project/snake_done.mp4',
+    logo: '/assets/snakeLogo.png',
+    logoStyle: {
+      backgroundColor: '#0E1F38',
+      border: '0.2px solid #0E2D58',
+      boxShadow: '0px 0px 60px 0px #AA3C304D',
+    },
+    spotlight: '/assets/spotlight1.png',
+    tags: [
+      { id: 1, name: 'TypeScript', path: '/assets/typescriptLogo.png' },
+      { id: 2, name: 'D3.js', path: '/assets/d3Logo.png' },
+      { id: 3, name: 'SVG', path: '/assets/svgLogo.png' },
+      { id: 4, name: 'Jest', path: '/assets/jestLogo.png' },
+    ],
+  }
 ];
+
+export const workExperiences = [
+  {
+    id: 1,
+    name: 'LifeSense Group',
+    pos: 'Software Engineer',
+    duration: 'May 2025 – Jul 2025',
+    title:
+      'Co-developed URi TEST, a mobile health app for real-time urine test analysis. Built image validation logic, integrated MongoDB, and delivered a GDPR-compliant React Native UI tailored for elderly users.',
+    icon: '/assets/lifesense.png',
+    animation: 'victory',
+  },
+  {
+    id: 2,
+    name: 'Avutec Computer Vision Solutions',
+    pos: 'Software Engineer',
+    duration: 'Apr 2025 – May 2025',
+    title:
+      'Led development of CortexConnect, a cloud-based platform managing 300+ ANPR devices. Improved license plate recognition workflows using .NET (C#), Blazor, Azure, and Protobuf for real-time data handling.',
+    icon: '/assets/avutec.png',
+    animation: 'salute',
+  }
+]
+
 
 export const calculateSizes = (isSmall, isMobile, isTablet, isMobileHorizontal) => {
   return {

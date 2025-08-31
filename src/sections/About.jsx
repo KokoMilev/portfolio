@@ -28,24 +28,36 @@ const About = () => {
 
                         <div>
                             <p className="grid-headtext">Hi, I'm Kaloyan</p>
-                            <p className="grid-subtext">Motivated Computer Science student at <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" className="modern-link1">TU/e</a> with a strong foundation in data analytics, algorithms,
-                            and software development. Experienced in problem-solving, programming, and adapting to new
-                            environments through hands-on projects and professional roles at <a href="https://www.asml.com" target="_blank" rel="noreferrer" className="modern-link2">ASML</a>. I thrive on leveraging technology to tackle real-world challenges, combining skills in machine learning, data processing, and cutting-edge programming. With a deep interest in robotics, embedded systems, and financial markets, I bring a disciplined work ethic and a collaborative mindset to every opportunity.
+                            <p className="grid-subtext">I’m a Computer Science and Engineering graduate from <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" className="modern-link1">TU Eindhoven</a> with hands-on experience in software development across backend, frontend, and embedded systems. I’ve worked on projects ranging from healthcare mobile apps and computer vision platforms to robotics and interactive web applications. My professional experience includes building cloud-based solutions in .NET/C#, React Native apps for healthcare, and vision systems for large-scale hardware deployments. I thrive at the intersection of technology and problem-solving, always eager to learn and adapt.
                             </p>
                         </div>
                     </div>
                 </div>
-                <div className="col-span-1 xl:row-span-3">
-                    <div className="grid-container">
-                        <img src="/assets/languageMe.png" alt="grid 2" className="w-full sm:h-[276px] h-fit object-contain" />
+            <div className="col-span-1 xl:row-span-3">
+                <div className="grid-container">
+                    <img 
+                    src="/assets/languageMe.png" 
+                    alt="Tech Stack" 
+                    className="w-full sm:h-[276px] h-fit object-contain" 
+                    />
 
-                        <div>
-                            <p className="grid-headtext">Tech Stack</p>
-                            <p className="grid-subtext">
-                            I have strong skills in Python and Java for backend development and problem-solving, along with experience in React, Next.js, and Tailwind CSS for creating scalable and engaging user interfaces. I also enjoy working with Three.js for 3D visualizations and have solid understanding of JavaScript/TypeScript and C/C++, showcasing my versatility. I'm always excited to explore and learn new technologies to enhance my expertise.</p>
-                        </div>
+                    <div>
+                    <p className="grid-headtext">Tech Stack</p>
+                    <p className="grid-subtext">
+                        Skilled in <span className="font-semibold">Java, C#, and Python</span> for backend 
+                        development and problem-solving, with strong experience in 
+                        <span className="font-semibold"> React, Next.js, and TypeScript</span> for 
+                        building scalable web applications. Comfortable working with 
+                        <span className="font-semibold"> SQL, MongoDB, and Firebase</span> for data 
+                        management, and experienced in <span className="font-semibold">Docker, 
+                        Kubernetes, and Azure</span> for deployment and cloud solutions. 
+                        I also enjoy experimenting with <span className="font-semibold">Three.js </span> 
+                        for 3D visualizations and continue to explore new technologies 
+                        to broaden my expertise.
+                    </p>
                     </div>
                 </div>
+            </div>
                 <div className="col-span-1 xl:row-span-4">
                     <div className="grid-container"
                      style={{overflow: 'hidden',}}>
