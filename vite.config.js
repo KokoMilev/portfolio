@@ -8,4 +8,9 @@ console.log('Trying to load:', '/models/cube.glb');
 export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.glb'],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3001',
+    },
+  },
 })
