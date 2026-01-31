@@ -140,16 +140,26 @@ export const myProjects = [
 export const workExperiences = [
   {
     id: 1,
+    name: 'UiPath',
+    pos: 'Software Engineer',
+    duration: 'Sep 2025 – Present',
+    title:
+      'Working on enterprise-scale Process Mining applications used by large customers, contributing to complex, data-heavy frontends built with React, TypeScript, and D3.js. Delivered production-ready features, investigated and fixed critical bugs, and shipped hotfixes directly to live systems under strict reliability requirements. Contributed to maintaining and improving end-to-end test suites and supported stable CI/CD deployments in a large, collaborative engineering environment.',
+    icon: '/assets/uipath.png',
+    animation: 'victory',
+  },
+  {
+    id: 2,
     name: 'LifeSense Group',
     pos: 'Software Engineer',
     duration: 'May 2025 – Jul 2025',
     title:
       'Co-developed URi TEST, a mobile health app for real-time urine test analysis. Built image validation logic, integrated MongoDB, and delivered a GDPR-compliant React Native UI tailored for elderly users.',
     icon: '/assets/lifesense.png',
-    animation: 'victory',
+    animation: 'salute',
   },
   {
-    id: 2,
+    id: 3,
     name: 'Avutec Computer Vision Solutions',
     pos: 'Software Engineer',
     duration: 'Apr 2025 – May 2025',

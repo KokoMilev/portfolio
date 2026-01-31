@@ -5,6 +5,7 @@ const Contact = () => {
     const formRef = useRef();
 
     const [loading, setLoading] = useState(false);
+    const [errors, setErrors] = useState({});
 
     const [form, setForm] = useState({
         name: '',
@@ -14,10 +15,39 @@ const Contact = () => {
 
     const handleChange = ({ target: { name, value } }) => {
         setForm({ ...form, [name]: value })
+        // Clear error for this field when user starts typing
+        if (errors[name]) {
+            setErrors({ ...errors, [name]: '' })
+        }
+    }
+
+    const validateForm = () => {
+        const newErrors = {};
+        
+        if (!form.name.trim()) {
+            newErrors.name = 'Name is required';
+        }
+        
+        if (!form.email.trim()) {
+            newErrors.email = 'Email is required';
+        }
+        
+        if (form.message.length < 50) {
+            newErrors.message = 'Message must be at least 50 characters';
+        }
+        
+        return newErrors;
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        const newErrors = validateForm();
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors);
+            return;
+        }
+
         setLoading(true);
 
         try {
@@ -42,6 +72,7 @@ const Contact = () => {
                 email: '',
                 message: ''
             })
+            setErrors({});
 
         } catch (error) {
             setLoading(false);
@@ -76,6 +107,7 @@ const Contact = () => {
                                 className="field-input"
                                 placeholder="John Doe"
                             />
+                            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
                         </label>
                         <label className="space-y-3">
                             <span className="field-label">
@@ -90,6 +122,7 @@ const Contact = () => {
                                 className="field-input"
                                 placeholder="johndoe@gmail.com"
                             />
+                            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                         </label>
                         <label className="space-y-3">
                             <span className="field-label">
@@ -103,8 +136,12 @@ const Contact = () => {
                                 className="field-input"
                                 placeholder="Hi, I'm interested in ... "
                             />
+                            <div className="flex justify-between items-center">
+                                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
+                                {form.message.length < 50 && <p  className="text-gray-400 text-sm">{form.message.length}/50</p>}
+                            </div>
                         </label>
-                        <button className="field-btn" type="submit" disabled={loading}>
+                        <button className="field-btn" type="submit" disabled={loading || form.message.length < 50}>
                             {loading ? 'Sending ... ' : 'Send Message'}
                             <img src="/assets/arrow-up.png" alt="arrow-up" className="field_btn_arrow" />
                         </button>

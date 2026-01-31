@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import Globe from 'react-globe.gl'
 import Buttom from '../components/Buttom'
+
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
     const globeEl = React.useRef();
+    
     const handleCopy = () => {
         navigator.clipboard.writeText('kaloyandimov.milev@gmail.com');
         setHasCopied(true);
@@ -28,8 +30,7 @@ const About = () => {
 
                         <div>
                             <p className="grid-headtext">Hi, I'm Kaloyan</p>
-                            <p className="grid-subtext">I’m a Computer Science and Engineering graduate from <a href="https://www.tue.nl/en/" target="_blank" rel="noreferrer" className="modern-link1">TU Eindhoven</a> with hands-on experience in software development across backend, frontend, and embedded systems. I’ve worked on projects ranging from healthcare mobile apps and computer vision platforms to robotics and interactive web applications. My professional experience includes building cloud-based solutions in .NET/C#, React Native apps for healthcare, and vision systems for large-scale hardware deployments. I thrive at the intersection of technology and problem-solving, always eager to learn and adapt.
-                            </p>
+                            <p className="grid-subtext">I'm a Software Engineer with a background in Computer Science and Engineering from Eindhoven University of Technology. I enjoy building things that are both technically solid and intuitive to use, and I'm especially drawn to problems where data, systems, and user experience meet.<br /><br />Outside of work, I like experimenting with interactive visuals, exploring new technologies, and understanding how complex systems behave at scale. I value clean design, thoughtful problem-solving, and continuous improvement—both in code and in how I approach challenges.</p>
                         </div>
                     </div>
                 </div>
@@ -44,16 +45,16 @@ const About = () => {
                     <div>
                     <p className="grid-headtext">Tech Stack</p>
                     <p className="grid-subtext">
-                        Skilled in <span className="font-semibold">Java, C#, and Python</span> for backend 
-                        development and problem-solving, with strong experience in 
-                        <span className="font-semibold"> React, Next.js, and TypeScript</span> for 
-                        building scalable web applications. Comfortable working with 
-                        <span className="font-semibold"> SQL, MongoDB, and Firebase</span> for data 
-                        management, and experienced in <span className="font-semibold">Docker, 
-                        Kubernetes, and Azure</span> for deployment and cloud solutions. 
-                        I also enjoy experimenting with <span className="font-semibold">Three.js </span> 
-                        for 3D visualizations and continue to explore new technologies 
-                        to broaden my expertise.
+                        Skilled in <span className="font-semibold">TypeScript and React</span> for building 
+                        scalable frontend applications, with hands-on experience using 
+                        <span className="font-semibold"> D3.js</span> to implement custom, data-driven 
+                        visualizations for complex datasets. I also have experience with 
+                        <span className="font-semibold"> .NET (C#) and Node.js</span> for backend services, 
+                        alongside <span className="font-semibold">SQL and MongoDB</span> for data storage. 
+                        For infrastructure and delivery, I've worked with <span className="font-semibold">Azure, 
+                        Docker, CI/CD pipelines,</span> and <span className="font-semibold">E2E testing</span> to 
+                        support reliable production deployments. I enjoy exploring 
+                        <span className="font-semibold"> Three.js</span> and motion-driven UI for interactive experiences.
                     </p>
                     </div>
                 </div>
@@ -61,7 +62,6 @@ const About = () => {
                 <div className="col-span-1 xl:row-span-4">
                     <div className="grid-container"
                      style={{overflow: 'hidden',}}>
-                        {/* <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center"> */}
                         <div
                             className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center"
                             style={{
