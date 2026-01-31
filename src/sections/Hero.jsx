@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { PerspectiveCamera, Ring, useProgress } from '@react-three/drei';
-import Mydesk from '../components/Mydesk.jsx';
 import { Suspense } from 'react';
 import CanvasLoader from '../components/CanvasLoader.jsx';
 import { useMediaQuery } from 'react-responsive';
@@ -12,6 +11,7 @@ import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import Buttom from '../components/Buttom.jsx';
+import Mydesk from '../components/Mydesk.jsx';
 
 
 const AnimatedCamera = ({ startAnimation }) => {
@@ -76,7 +76,7 @@ const Hero = () => {
 
                 <AnimatedCamera startAnimation={startAnimation}/>
                 <HeroCamera>
-                  <Mydesk 
+                  <Mydesk
                   position={sizes.deskPosition}
                   rotation={[0, -Math.PI / 2, 0]}
                   scale={sizes.deskScale}
