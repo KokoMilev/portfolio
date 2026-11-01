@@ -78,7 +78,7 @@ const DemoComputer = (props) => {
               castShadow
               receiveShadow
               geometry={nodes.Plane013_floppy001_0.geometry}
-              material={materials['floppy.001']}
+              material={materials.floppy}
             />
           </group>
           <group position={[110.635, 40.126, 49.085]} rotation={[-Math.PI / 2, 0, 0]} scale={100}>
@@ -200,7 +200,7 @@ const DemoComputer = (props) => {
             castShadow
             receiveShadow
             geometry={nodes.Plane004_stickersyellow_0.geometry}
-            material={materials['stickers.yellow']}
+            material={materials.stickers}
             position={[222.415, 64.558, 54.145]}
             rotation={[-Math.PI / 2, 0, 0]}
             scale={100}
