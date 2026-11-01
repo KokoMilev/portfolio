@@ -1,6 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { PerspectiveCamera, Ring, useProgress } from '@react-three/drei';
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera } from '@react-three/drei';
 import { Suspense } from 'react';
 import CanvasLoader from '../components/CanvasLoader.jsx';
 import { useMediaQuery } from 'react-responsive';
@@ -13,21 +12,6 @@ import Buttom from '../components/Buttom.jsx';
 import Mydesk from '../components/Mydesk.jsx';
 
 
-const AnimatedCamera = ({ startAnimation }) => {
-  const cameraRef = useRef();
-  useFrame(({ clock }) => {
-    if (cameraRef.current && startAnimation) {
-      const elapsedTime = clock.getElapsedTime();
-              
-      if (elapsedTime < 3.2) {
-        cameraRef.current.position.z = 43 - elapsedTime * 8; // Move closer
-        
-      }
-    }
-  });
-
-return <PerspectiveCamera makeDefault ref={cameraRef} position={[0, 0, 30]} />;
-};
 const Hero = () => {
 
 
@@ -38,22 +22,6 @@ const Hero = () => {
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet, isMobileHorizontal);
   
-  // State to track when the animation should start
-  const [startAnimation, setStartAnimation] = useState(false);
-  const { progress } = useProgress();
-
-  useEffect(() => {
-    if (progress === 100) {
-      // Wait 1 second and start the animation
-      const timer = setTimeout(() => {
-        setStartAnimation(true);
-      }, 1000);
-  
-      return () => clearTimeout(timer); // Cleanup timer on unmount
-    }
-  }, [progress]);
-  
-
   return (
     <section className="w-full flex flex-col relative"
     id="home"
@@ -67,12 +35,9 @@ const Hero = () => {
         </div>
 
         <div className='w-full h-full absolute inset-0'>
-                {/* <Leva /> */}
             <Canvas className="w-full h-full">
                 <Suspense fallback={<CanvasLoader />}>               
-                <PerspectiveCamera makeDefault position={[0, 0, 30]} />
-
-                <AnimatedCamera startAnimation={startAnimation}/>
+                <PerspectiveCamera makeDefault position={[0, 0, 43]} />
                 <HeroCamera>
                   <Mydesk
                   position={sizes.deskPosition}
