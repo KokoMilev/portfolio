@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { workExperiences } from '../constants'
 import { Canvas } from '@react-three/fiber'
 import { OrbitControls } from '@react-three/drei'
@@ -7,8 +8,9 @@ import Developer from '../components/Developer'
 
 const Experience = () => {
     const [animationName, setAnimationName] = useState('idle');
+    const isTouch = useMediaQuery({ query: '(pointer: coarse)' });
   return (
-    <section className="c-space my-20">
+    <section className="c-space my-20" id="experience">
         <div className="w-full text-white-600">
             <h3 className='head-text'>My Work Experience</h3>
             <div className="work-container">
@@ -17,7 +19,7 @@ const Experience = () => {
                         <ambientLight intensity={7} />
                         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
                         <directionalLight position={[10, 10, 10]} intensity={1} />
-                        <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
+                        {!isTouch && <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />}
                         <Suspense fallback={<CanvasLoader />}>
                             <Developer position-y={-3} scale={3} animationName={animationName} />
                         </Suspense>

@@ -1,4 +1,5 @@
 import React, { Suspense, useState } from 'react'
+import { useMediaQuery } from 'react-responsive'
 import { myProjects } from '../constants'
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
@@ -9,6 +10,7 @@ const projectCount = myProjects.length;
 const Projects = () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
     const currentProject = myProjects[selectedProjectIndex];
+    const isTouch = useMediaQuery({ query: '(pointer: coarse)' });
     const handleNavigation = (direction) => {
         setSelectedProjectIndex((prevIndex) => {
             if (direction == 'previous') {
@@ -64,7 +66,7 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div className="border border-black-300 bg-black-200 rounded-lg h-84 md:h-full">
+                <div className="border border-black-300 bg-black-200 rounded-lg h-80 lg:h-full">
                     <Canvas camera={{
                         position: [0, 5, 20],
                         fov: 50,
@@ -80,9 +82,11 @@ const Projects = () => {
                                 </group>
                             </Suspense>
                         </Center>
-                        <OrbitControls
-                         maxAzimuthAngle={Math.PI / 4}  maxPolarAngle={Math.PI / 2} enableZoom={false} 
-                         enablePan={false} />
+                        {!isTouch && (
+                            <OrbitControls
+                             maxAzimuthAngle={Math.PI / 4}  maxPolarAngle={Math.PI / 2} enableZoom={false} 
+                             enablePan={false} />
+                        )}
                     </Canvas>
                 </div>
             </div>

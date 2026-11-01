@@ -2,18 +2,12 @@ import { useEffect, useRef, useState } from "react"
 import {navLinks} from "../constants/index.js"
 import closeIcon from "../assets/close.svg"
 import menuIcon from "../assets/menu.svg"
-const NavItems = () => {
+const NavItems = ({ onNavigate }) => {
     return (
         <ul className="nav-ul">
             {navLinks.map(({id, href, name}) => (
-                <li key={id} className="nav-li"
-                onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(href).scrollIntoView({ behavior: "smooth" }); // Button fix
-                  }}
-                >
-                    <a href={href} className="nav-li_a"
-                        onClick={() => {}}>
+                <li key={id} className="nav-li">
+                    <a href={href} className="nav-li_a" onClick={onNavigate}>
                         {name}
                     </a>
                 </li>
@@ -46,8 +40,8 @@ const Navbar = () => {
                 Kaloyan
                 </a>
 
-                <button onClick={toggleMenu} className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex" aria-label="Toggle Menu">
-                    <img src={isOpen ? closeIcon : menuIcon} alt="toggle" className="w-6 h-6"/>
+                <button onClick={toggleMenu} className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex" aria-label="Toggle Menu" aria-expanded={isOpen}>
+                    <img src={isOpen ? closeIcon : menuIcon} alt="" className="w-6 h-6"/>
                 </button>
                 <nav className="sm:flex hidden">
                     <NavItems />
@@ -55,7 +49,7 @@ const Navbar = () => {
             </div>
             <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
                 <nav className="p-5">
-                    <NavItems />
+                    <NavItems onNavigate={() => setIsOpen(false)} />
                 </nav>
             </div>
         </div>

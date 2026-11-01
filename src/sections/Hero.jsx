@@ -59,8 +59,7 @@ const Hero = () => {
     <section className="w-full flex flex-col relative"
     id="home"
     style={{
-      height: 'clamp(800px, 100vh, 100%)', // Dynamic height with a minimum of 344px
-      paddingBottom: '30rem',
+      height: 'max(800px, 100svh)',
     }}
   >
         <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 mb-20 c-space gap-3">
@@ -94,7 +93,7 @@ const Hero = () => {
             </Canvas>
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center">
-          <a href="#about" className="w-auto px-4 py-2 rounded-lg text-white">
+          <a href="#contact" className="w-auto px-4 py-2 rounded-lg text-white">
             <Buttom name="Let's work together" isBeam containerClass="sm:w-auto w-auto px-4 py-2"/>
           </a>
         </div>
