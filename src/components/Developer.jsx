@@ -98,5 +98,8 @@ const Developer = ({ animationName = 'idle' , ...props}) => {
 }
 
 useGLTF.preload('/models/developer.glb')
+useFBX.preload('/models/animations/idle.fbx')
+useFBX.preload('/models/animations/salute.fbx')
+useFBX.preload('/models/animations/victory.fbx')
 
 export default Developer;

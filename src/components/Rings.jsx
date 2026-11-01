@@ -57,4 +57,6 @@ const Rings = ({ position }) => {
   );
 };
 
+useTexture.preload('textures/rings.png');
+
 export default Rings;

@@ -130,5 +130,6 @@ const Mydesk = (props) => {
 }
 
 useGLTF.preload(DeskModel)
+useTexture.preload('/assets/monitor.png')
 export default Mydesk;
 
