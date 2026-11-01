@@ -65,7 +65,7 @@ const Contact = () => {
         <section className="c-space my-20" id="contact">
             <div className="relative min-h-screen flex items-center justify-center flex-col">
                 <div className="contact-container">
-                    <h3 className="head-text">Let's talk</h3>
+                    <h2 className="head-text">Let's talk</h2>
                     <p className="text-lg text-white-600 mt-3">
                         I'm always open to interesting conversations. Send me a message.
                     </p>
@@ -131,7 +131,7 @@ const Contact = () => {
                             disabled={loading}
                         >
                             {loading ? 'Sending ... ' : 'Send Message'}
-                            <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
+                            <img src="/assets/arrow-up.png" alt="" className="field-btn_arrow" />
                         </button>
                         <div aria-live="polite">
                             {submitError && <p className="text-red-500 text-sm">{submitError}</p>}

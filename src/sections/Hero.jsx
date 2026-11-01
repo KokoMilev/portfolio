@@ -33,7 +33,7 @@ const Hero = () => {
   >
         <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 mb-20 c-space gap-3">
             <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">Hi, I am Kaloyan <span className="waving-hand">👋</span></p>
-            <p className="hero_tag text-gray_gradient">Software Engineer building AI agents and data-rich products</p>
+            <h1 className="hero_tag text-gray_gradient">Software Engineer building AI agents and data-rich products</h1>
         </div>
 
         <div ref={canvasRef} className='w-full h-full absolute inset-0'>

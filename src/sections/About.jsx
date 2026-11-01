@@ -32,10 +32,10 @@ const About = () => {
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <img loading="lazy" src="/assets/cartoonMe.png" alt="grid 1" className="w-full sm:h-[276px] h-fit object-contain" />
+                        <img loading="lazy" src="/assets/cartoonMe.png" alt="Cartoon portrait of Kaloyan" className="w-full sm:h-[276px] h-fit object-contain" />
 
                         <div>
-                            <p className="grid-headtext">Hi, I'm Kaloyan</p>
+                            <h2 className="grid-headtext">Hi, I'm Kaloyan</h2>
                             <p className="grid-subtext">I'm a Software Engineer with a BSc in Computer Science from Eindhoven University of Technology. I enjoy building things that are both technically solid and intuitive to use, and I'm especially drawn to problems where data, systems, and user experience meet.<br /><br />Outside of work, I like experimenting with interactive visuals, exploring new technologies, and understanding how complex systems behave at scale. I value clean design, thoughtful problem-solving, and continuous improvement—both in code and in how I approach challenges.</p>
                         </div>
                     </div>
@@ -44,12 +44,12 @@ const About = () => {
                 <div className="grid-container">
                     <img 
                     src="/assets/languageMe.png" loading="lazy" 
-                    alt="Tech Stack" 
+                    alt="Icons of the languages Kaloyan works with" 
                     className="w-full sm:h-[276px] h-fit object-contain" 
                     />
 
                     <div>
-                    <p className="grid-headtext">Tech Stack</p>
+                    <h2 className="grid-headtext">Tech Stack</h2>
                     <p className="grid-subtext">
                         I work mostly in <span className="font-semibold">TypeScript and React</span>, with
                         Next.js and TanStack, and build AI features with
@@ -100,8 +100,8 @@ const About = () => {
                             )}
                         </div>
                         <div>
-                            <p className='grid-headtext'>
-                                I work remotely across most timezones.</p>
+                            <h2 className='grid-headtext'>
+                                I work remotely across most timezones.</h2>
                             <p className='grid-subtext'>I'm based in the Netherlands, with remote work available.</p>
                             <a href="#contact" className="w-auto px-4 py-2 rounded-lg text-white">
                             <Buttom name="Contact me" isBeam containerClass="w-full mt-10" /> 
@@ -111,11 +111,11 @@ const About = () => {
                 </div>
                 <div className='xl:col-span-2 xl:row-span-3'>
                     <div className="grid-container">
-                        <img loading="lazy" src="/assets/grid3.png" alt='grid 3' className='w-full sm:h-[266px] h-fit object-contain' />
+                        <img loading="lazy" src="/assets/grid3.png" alt='' className='w-full sm:h-[266px] h-fit object-contain' />
                         <div>
-                            <p className='grid-headtext'>
+                            <h2 className='grid-headtext'>
                                 What I Like Building
-                            </p>
+                            </h2>
                             <p className='grid-subtext'>
                                 Tools that make complex data usable: AI agents that gather evidence and recommend next steps, interactive analytics that reveal bottlenecks, and shared components that help other engineers ship faster.
                             </p>
@@ -125,13 +125,13 @@ const About = () => {
                 </div>
                 <div className="xl:col-span-1 xl:row-span-2">
                     <div className="grid-container">
-                        <img loading="lazy" src="/assets/grid4.png" alt="grid 4" className="w-full md:h-[126px] sm:h-[266px]  h-fit object-cover sm:object-top" />
+                        <img loading="lazy" src="/assets/grid4.png" alt="" className="w-full md:h-[126px] sm:h-[266px]  h-fit object-cover sm:object-top" />
                         <div className="space-y-2">
                             <p className='grid-subtext text-center'>Contact me</p>
-                            <div className="copy-container" onClick={handleCopy}>
-                                <img src={hasCopied ? '/assets/tick.svg' : '/assets/copy.svg'} alt="copy" />	
-                                <p className="lg:text-xl md:text-l font-medium text-gray_gradient text-white">kaloyandimov.milev@gmail.com</p>
-                            </div>
+                            <button type="button" className="copy-container w-full" onClick={handleCopy} aria-label={hasCopied ? 'Email address copied' : 'Copy email address'}>
+                                <img src={hasCopied ? '/assets/tick.svg' : '/assets/copy.svg'} alt="" />
+                                <span className="lg:text-xl md:text-l font-medium text-gray_gradient text-white">kaloyandimov.milev@gmail.com</span>
+                            </button>
                         </div>
                     </div>
                 </div>
