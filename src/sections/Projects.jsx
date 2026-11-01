@@ -1,16 +1,19 @@
-import React, { Suspense, useState } from 'react'
+import React, { Suspense, lazy, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { myProjects } from '../constants'
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
-import DemoComputer from '../components/DemoComputer';
+import { useInView } from '../hooks/useInView';
 import CanvasLoader from '../components/CanvasLoader';
+
+const DemoComputer = lazy(() => import('../components/DemoComputer'));
 const projectCount = myProjects.length;
 
 const Projects = () => {
     const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
     const currentProject = myProjects[selectedProjectIndex];
     const isTouch = useMediaQuery({ query: '(pointer: coarse)' });
+    const { ref: canvasRef, isInView, hasEntered } = useInView();
     const handleNavigation = (direction) => {
         setSelectedProjectIndex((prevIndex) => {
             if (direction == 'previous') {
@@ -66,8 +69,8 @@ const Projects = () => {
                     </div>
                 </div>
 
-                <div className="border border-black-300 bg-black-200 rounded-lg h-80 lg:h-full">
-                    <Canvas camera={{
+                <div ref={canvasRef} className="border border-black-300 bg-black-200 rounded-lg h-80 lg:h-full">
+                    {hasEntered && <Canvas frameloop={isInView ? 'always' : 'never'} camera={{
                         position: [0, 5, 20],
                         fov: 50,
                     }}
@@ -87,7 +90,7 @@ const Projects = () => {
                              maxAzimuthAngle={Math.PI / 4}  maxPolarAngle={Math.PI / 2} enableZoom={false} 
                              enablePan={false} />
                         )}
-                    </Canvas>
+                    </Canvas>}
                 </div>
             </div>
 

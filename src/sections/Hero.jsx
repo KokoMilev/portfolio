@@ -10,6 +10,7 @@ import Rings from '../components/Rings.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
 import Buttom from '../components/Buttom.jsx';
 import Mydesk from '../components/Mydesk.jsx';
+import { useInView } from '../hooks/useInView.js';
 
 
 const Hero = () => {
@@ -21,6 +22,7 @@ const Hero = () => {
   const isMobileHorizontal = useMediaQuery({ minWidth: 441, maxWidth: 1024, maxHeight: 800});
 
   const sizes = calculateSizes(isSmall, isMobile, isTablet, isMobileHorizontal);
+  const { ref: canvasRef, isInView } = useInView('0px');
   
   return (
     <section className="w-full flex flex-col relative"
@@ -34,8 +36,8 @@ const Hero = () => {
             <p className="hero_tag text-gray_gradient">Software Engineer building AI agents and data-rich products</p>
         </div>
 
-        <div className='w-full h-full absolute inset-0'>
-            <Canvas className="w-full h-full">
+        <div ref={canvasRef} className='w-full h-full absolute inset-0'>
+            <Canvas className="w-full h-full" frameloop={isInView ? 'always' : 'never'}>
                 <Suspense fallback={<CanvasLoader />}>               
                 <PerspectiveCamera makeDefault position={[0, 0, 43]} />
                 <HeroCamera>

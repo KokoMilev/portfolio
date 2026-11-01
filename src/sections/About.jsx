@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react'
-import Globe from 'react-globe.gl'
+import React, { Suspense, lazy, useEffect, useState } from 'react'
 import Buttom from '../components/Buttom'
+import { useInView } from '../hooks/useInView'
+
+const Globe = lazy(() => import('react-globe.gl'))
 
 const About = () => {
     const [hasCopied, setHasCopied] = useState(false);
@@ -15,18 +17,22 @@ const About = () => {
         }, 2000);
     }
 
+    const { ref: globeWrapperRef, isInView, hasEntered } = useInView();
+
     useEffect(() => {
-        if (globeEl.current) {
-            globeEl.current.pointOfView({ lat: 30, lng: 5, altitude: 2 });
+        if (isInView) {
+            globeEl.current?.resumeAnimation();
+        } else {
+            globeEl.current?.pauseAnimation();
         }
-    }, [globeEl]);
+    }, [isInView]);
 
     return (
         <section className="c-space my-20" id="about">
             <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
                 <div className="col-span-1 xl:row-span-3">
                     <div className="grid-container">
-                        <img src="/assets/cartoonMe.png" alt="grid 1" className="w-full sm:h-[276px] h-fit object-contain" />
+                        <img loading="lazy" src="/assets/cartoonMe.png" alt="grid 1" className="w-full sm:h-[276px] h-fit object-contain" />
 
                         <div>
                             <p className="grid-headtext">Hi, I'm Kaloyan</p>
@@ -37,7 +43,7 @@ const About = () => {
             <div className="col-span-1 xl:row-span-3">
                 <div className="grid-container">
                     <img 
-                    src="/assets/languageMe.png" 
+                    src="/assets/languageMe.png" loading="lazy" 
                     alt="Tech Stack" 
                     className="w-full sm:h-[276px] h-fit object-contain" 
                     />
@@ -63,30 +69,35 @@ const About = () => {
                     <div className="grid-container"
                      style={{overflow: 'hidden',}}>
                         <div
-                            className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center"
+                            ref={globeWrapperRef}
+                            className="rounded-3xl w-full sm:h-[326px] min-h-[220px] flex justify-center items-center"
                             style={{
                                 position: 'relative',
                                 overflow: 'hidden',
                             }}
                         >
-                            <Globe
-                                height={220}
-                                width={220}
-                                backgroundColor='rgba(0, 0, 0, 0)'
-                                backgroundImageOpacity={0.5}
-                                showAtmosphere
-                                showGraticules
-                                globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-                                bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-                                labelsData={[{
-                                    lat: 51,
-                                    lng: 5.5,
-                                    text: "I am here!",
-                                    color: "white",
-                                    size: 25,
-                                }]}
-                            ref={globeEl}
-                            />
+                            {hasEntered && (
+                                <Suspense fallback={null}>
+                                    <Globe
+                                        ref={globeEl}
+                                        height={220}
+                                        width={220}
+                                        backgroundColor='rgba(0, 0, 0, 0)'
+                                        backgroundImageOpacity={0.5}
+                                        showAtmosphere
+                                        showGraticules
+                                        globeImageUrl="/textures/globe/earth-night.jpg"
+                                        labelsData={[{
+                                            lat: 51,
+                                            lng: 5.5,
+                                            text: "I am here!",
+                                            color: "white",
+                                            size: 25,
+                                        }]}
+                                        onGlobeReady={() => globeEl.current?.pointOfView({ lat: 30, lng: 5, altitude: 2 })}
+                                    />
+                                </Suspense>
+                            )}
                         </div>
                         <div>
                             <p className='grid-headtext'>
@@ -100,7 +111,7 @@ const About = () => {
                 </div>
                 <div className='xl:col-span-2 xl:row-span-3'>
                     <div className="grid-container">
-                        <img src='/assets/grid3.png' alt='grid 3' className='w-full sm:h-[266px] h-fit object-contain' />
+                        <img loading="lazy" src="/assets/grid3.png" alt='grid 3' className='w-full sm:h-[266px] h-fit object-contain' />
                         <div>
                             <p className='grid-headtext'>
                                 What I Like Building
@@ -114,7 +125,7 @@ const About = () => {
                 </div>
                 <div className="xl:col-span-1 xl:row-span-2">
                     <div className="grid-container">
-                        <img src="/assets/grid4.png" alt="grid 4" className="w-full md:h-[126px] sm:h-[266px]  h-fit object-cover sm:object-top" />
+                        <img loading="lazy" src="/assets/grid4.png" alt="grid 4" className="w-full md:h-[126px] sm:h-[266px]  h-fit object-cover sm:object-top" />
                         <div className="space-y-2">
                             <p className='grid-subtext text-center'>Contact me</p>
                             <div className="copy-container" onClick={handleCopy}>

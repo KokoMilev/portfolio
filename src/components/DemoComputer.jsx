@@ -6,7 +6,7 @@ const DemoComputer = (props) => {
   const group = useRef()
   const { nodes, materials } = useGLTF('models/1970s_retro_computer_low.glb')
 
-  const txt = useVideoTexture(props.texture ? props.texture : '/textures/project/project1.mp4')
+  const txt = useVideoTexture(props.texture)
 
   useGSAP( () => {
       gsap.from(group.current.rotation, {
