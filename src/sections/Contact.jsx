@@ -166,7 +166,7 @@ const Contact = () => {
                             disabled={loading}
                         >
                             {loading ? 'Sending ... ' : 'Send Message'}
-                            <img src="/assets/arrow-up.png" alt="arrow-up" className="field_btn_arrow" />
+                            <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
                         </button>
                         {submitError && (
                             <p className="text-red-500 text-sm">{submitError}</p>

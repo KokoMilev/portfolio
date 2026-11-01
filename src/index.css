@@ -145,7 +145,7 @@ body {
   }
 
   .field-btn_arrow {
-    @apply w-2.5 h-2.5 object-contain invert brightness-0;
+    @apply w-2.5 h-2.5 object-contain;
   }
 
   /*  footer */

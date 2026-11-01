@@ -33,7 +33,7 @@ const Projects = () => {
                     </div>
 
                     <div className="flex flex-col gap-5 text-white-600 my-5">
-                        <p clasname="text-white text-2xl font-semibol animatedText">{currentProject.title}
+                        <p className="text-white text-2xl font-semibold animatedText">{currentProject.title}
                         </p>
                         <p className="animatedText">{currentProject.desc}
                         </p>
@@ -55,10 +55,10 @@ const Projects = () => {
                     </div>
 
                     <div className="flex justify-between items-center mt-7">
-                        <button className="arrow-bnt" onClick={() => handleNavigation('previous')}>
+                        <button className="arrow-btn" onClick={() => handleNavigation('previous')}>
                             <img src="/assets/left-arrow.png" alt="left arrow" className="w-4 h-4" />
                         </button>
-                        <button className="arrow-bnt" onClick={() => handleNavigation('next')}>
+                        <button className="arrow-btn" onClick={() => handleNavigation('next')}>
                             <img src="/assets/right-arrow.png" alt="right arrow" className="w-4 h-4" />
                         </button>
                     </div>
@@ -71,7 +71,7 @@ const Projects = () => {
                     }}
                     >
                         <ambientLight intensity={1} />
-                        <directionalLight positions={[10, 10, 5]} />
+                        <directionalLight position={[10, 10, 5]} />
 
                         <Center>
                             <Suspense fallback={<CanvasLoader />}>
