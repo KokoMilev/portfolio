@@ -31,7 +31,7 @@ const Hero = () => {
       height: 'max(800px, 100svh)',
     }}
   >
-        <div className="w-full mx-auto flex flex-col sm:mt-36 mt-20 mb-20 c-space gap-3">
+        <div className="relative z-10 w-full mx-auto flex flex-col sm:mt-36 mt-20 mb-20 c-space gap-3">
             <p className="sm:text-3xl text-xl font-medium text-white text-center font-generalsans">Hi, I am Kaloyan <span className="waving-hand">👋</span></p>
             <h1 className="hero_tag text-gray_gradient">Software Engineer building AI agents and data-rich products</h1>
         </div>
