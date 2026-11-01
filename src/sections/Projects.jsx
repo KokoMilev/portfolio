@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { myProjects } from '../constants'
 import { Canvas } from '@react-three/fiber';

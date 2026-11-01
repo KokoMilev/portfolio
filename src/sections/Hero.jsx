@@ -8,7 +8,7 @@ import ReactLogo from '../components/ReactLogo.jsx';
 import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
 import HeroCamera from '../components/HeroCamera.jsx';
-import Buttom from '../components/Buttom.jsx';
+import Button from '../components/Button.jsx';
 import Mydesk from '../components/Mydesk.jsx';
 import { useInView } from '../hooks/useInView.js';
 
@@ -59,7 +59,7 @@ const Hero = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 z-10 flex justify-center">
           <a href="#contact" className="w-auto px-4 py-2 rounded-lg text-white">
-            <Buttom name="Let's work together" isBeam containerClass="sm:w-auto w-auto px-4 py-2"/>
+            <Button name="Let's work together" isBeam containerClass="sm:w-auto w-auto px-4 py-2"/>
           </a>
         </div>
     </section>

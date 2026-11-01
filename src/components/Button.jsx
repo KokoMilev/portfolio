@@ -1,6 +1,5 @@
-import React from 'react'
 
-const Buttom = ({name, isBeam = false, containerClass }) => {
+const Button = ({name, isBeam = false, containerClass }) => {
   return (
     <div className={`btn ${containerClass}`}>
         {isBeam && (
@@ -14,4 +13,4 @@ const Buttom = ({name, isBeam = false, containerClass }) => {
   )
 }
 
-export default Buttom
+export default Button

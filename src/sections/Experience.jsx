@@ -1,4 +1,4 @@
-import React, { Suspense, lazy, useState } from 'react'
+import { Suspense, lazy, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 import { workExperiences } from '../constants'
 import { Canvas } from '@react-three/fiber'
@@ -30,7 +30,7 @@ const Experience = () => {
                 </div>
                 <div className="work-content">
                     <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-                        {workExperiences.map(({ id, name, pos, duration, title, icon, animation }, index) => (
+                        {workExperiences.map(({ id, name, pos, duration, title, icon, animation }) => (
                             <div key = {id} className="work-content_container group" onClick={() => setAnimationName(animation.toLowerCase())}onPointerOver={() => setAnimationName(animation.toLowerCase())} onPointerOut={() => setAnimationName('idle')}>
                                 <div className="flex flex-col h-full justify-start items-center py-2">
                                     <div className="work-content_logo">

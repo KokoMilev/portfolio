@@ -1,5 +1,5 @@
 import React, { Suspense, lazy, useEffect, useState } from 'react'
-import Buttom from '../components/Buttom'
+import Button from '../components/Button'
 import { useInView } from '../hooks/useInView'
 
 const Globe = lazy(() => import('react-globe.gl'))
@@ -104,7 +104,7 @@ const About = () => {
                                 I work remotely across most timezones.</h2>
                             <p className='grid-subtext'>I'm based in the Netherlands, with remote work available.</p>
                             <a href="#contact" className="w-auto px-4 py-2 rounded-lg text-white">
-                            <Buttom name="Contact me" isBeam containerClass="w-full mt-10" /> 
+                            <Button name="Contact me" isBeam containerClass="w-full mt-10" /> 
                             </a>                           
                         </div>
                     </div>

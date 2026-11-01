@@ -1,4 +1,3 @@
-import React, { useRef } from 'react'
 import { Float, useGLTF } from '@react-three/drei'
 import ReactModel from '../models/react_logo.glb'	
 
