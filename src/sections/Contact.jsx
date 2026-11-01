@@ -1,21 +1,24 @@
-import React, { useRef, useState } from 'react'
-import emailjs from '@emailjs/browser';
+import React, { useState } from 'react'
+
+const EMPTY_FORM = {
+    name: '',
+    email: '',
+    message: '',
+    company: '',
+}
+
+const SEND_FAILED_MESSAGE = 'Your message could not be sent. Please email me at kaloyandimov.milev@gmail.com.';
 
 const Contact = () => {
-    const formRef = useRef();
-
     const [loading, setLoading] = useState(false);
     const [errors, setErrors] = useState({});
     const [submitError, setSubmitError] = useState('');
-
-    const [form, setForm] = useState({
-        name: '',
-        email: '',
-        message: '',
-    })
+    const [sent, setSent] = useState(false);
+    const [form, setForm] = useState(EMPTY_FORM)
 
     const handleChange = ({ target: { name, value } }) => {
         setForm({ ...form, [name]: value })
+        setSent(false)
         // Clear error for this field when user starts typing
         if (errors[name]) {
             setErrors({ ...errors, [name]: '' })
@@ -25,83 +28,39 @@ const Contact = () => {
         }
     }
 
-    const validateForm = () => {
-        const newErrors = {};
-        
-        if (!form.name.trim()) {
-            newErrors.name = 'Name is required';
-        }
-        
-        if (!form.email.trim()) {
-            newErrors.email = 'Email is required';
-        }
-        
-        if (form.message.length < 50) {
-            newErrors.message = 'Message must be at least 50 characters';
-        }
-        
-        return newErrors;
-    }
-
     const handleSubmit = async (e) => {
         e.preventDefault();
         setSubmitError('');
-        
-        const newErrors = validateForm();
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors);
-            return;
-        }
-
+        setErrors({});
+        setSent(false);
         setLoading(true);
 
         try {
-            // Check rate limit on server
-            const checkRes = await fetch('/api/contact/check');
-            const checkData = await checkRes.json();
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(form),
+            });
+            const data = await response.json().catch(() => ({}));
 
-            if (!checkRes.ok) {
-                setSubmitError(checkData?.error || 'Rate limit exceeded. Try again later.');
-                setLoading(false);
-                return;
+            if (response.ok) {
+                setForm(EMPTY_FORM);
+                setSent(true);
+            } else if (data.errors) {
+                setErrors(data.errors);
+            } else if (response.status === 429) {
+                setSubmitError(data.error);
+            } else {
+                setSubmitError(SEND_FAILED_MESSAGE);
             }
-
-            // Send email via EmailJS (client-side)
-            await emailjs.send(
-                'service_3c0agdn',
-                'template_ixhhisk',
-                {
-                    from_name: form.name,
-                    to_name: 'Kaloyan',
-                    from_email: form.email,
-                    to_email: 'kaloyandimov.milev@gmail.com',
-                    message: form.message
-                },
-                'BbWbeZvGgbUQF0In7'
-            );
-
-            // Log the send on server
-            await fetch('/api/contact/log', { method: 'POST' });
-
-            setLoading(false);
-
-            alert('Your message has been sent!')
-
-            setForm({
-                name: '',
-                email: '',
-                message: ''
-            })
-            setErrors({});
-
         } catch (error) {
+            console.error(error);
+            setSubmitError(SEND_FAILED_MESSAGE);
+        } finally {
             setLoading(false);
-
-            console.log(error);
-            setSubmitError('Something went wrong!')
         }
-
     }
+
     return (
         <section className="c-space my-20" id="contact">
             <div className="relative min-h-screen flex items-center justify-center flex-col">
@@ -109,10 +68,20 @@ const Contact = () => {
                 <div className="contact-container">
                     <h3 className="head-text">Let's talk</h3>
                     <p className="text-lg text-white-600 mt-3">
-                        I'm currently looking for new opportunities, my inbox is always open.
+                        I'm always open to interesting conversations. Send me a message.
                     </p>
 
-                    <form ref={formRef} onSubmit={handleSubmit} className="mt-12 flex flex-col space-y-7">
+                    <form onSubmit={handleSubmit} noValidate className="mt-12 flex flex-col space-y-7">
+                        <input
+                            type="text"
+                            name="company"
+                            value={form.company}
+                            onChange={handleChange}
+                            tabIndex={-1}
+                            autoComplete="off"
+                            aria-hidden="true"
+                            className="hidden"
+                        />
                         <label className="space-y-3">
                             <span className="field-label">
                                 Full Name
@@ -120,9 +89,9 @@ const Contact = () => {
                             <input
                                 type="text"
                                 name="name"
+                                aria-invalid={Boolean(errors.name)}
                                 value={form.name}
                                 onChange={handleChange}
-                                required
                                 className={`field-input ${errors.name ? '!border-red-500 ring-2 ring-red-500 focus:ring-red-500' : ''}`}
                                 placeholder="John Doe"
                             />
@@ -135,9 +104,9 @@ const Contact = () => {
                             <input
                                 type="email"
                                 name="email"
+                                aria-invalid={Boolean(errors.email)}
                                 value={form.email}
                                 onChange={handleChange}
-                                required
                                 className={`field-input ${errors.email ? '!border-red-500 ring-2 ring-red-500 focus:ring-red-500' : ''}`}
                                 placeholder="johndoe@gmail.com"
                             />
@@ -149,16 +118,13 @@ const Contact = () => {
                             </span>
                             <textarea
                                 name="message"
+                                aria-invalid={Boolean(errors.message)}
                                 value={form.message}
                                 onChange={handleChange}
-                                required
                                 className={`field-input ${errors.message ? '!border-red-500 ring-2 ring-red-500 focus:ring-red-500' : ''}`}
                                 placeholder="Hi, I'm interested in ... "
                             />
-                            <div className="flex justify-between items-center">
-                                {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
-                                {form.message.length < 50 && <p  className="text-gray-400 text-sm">{form.message.length}/50</p>}
-                            </div>
+                            {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
                         </label>
                         <button
                             className="field-btn transition-all duration-200 ease-out hover:-translate-y-0.5 hover:scale-[1.02] active:scale-95"
@@ -168,9 +134,10 @@ const Contact = () => {
                             {loading ? 'Sending ... ' : 'Send Message'}
                             <img src="/assets/arrow-up.png" alt="arrow-up" className="field-btn_arrow" />
                         </button>
-                        {submitError && (
-                            <p className="text-red-500 text-sm">{submitError}</p>
-                        )}
+                        <div aria-live="polite">
+                            {submitError && <p className="text-red-500 text-sm">{submitError}</p>}
+                            {sent && <p className="text-green-500 text-sm">Your message has been sent. Thanks for reaching out!</p>}
+                        </div>
                     </form>
                 </div>
             </div>
