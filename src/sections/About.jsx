@@ -30,7 +30,7 @@ const About = () => {
 
                         <div>
                             <p className="grid-headtext">Hi, I'm Kaloyan</p>
-                            <p className="grid-subtext">I'm a Software Engineer with a background in Computer Science and Engineering from Eindhoven University of Technology. I enjoy building things that are both technically solid and intuitive to use, and I'm especially drawn to problems where data, systems, and user experience meet.<br /><br />Outside of work, I like experimenting with interactive visuals, exploring new technologies, and understanding how complex systems behave at scale. I value clean design, thoughtful problem-solving, and continuous improvement—both in code and in how I approach challenges.</p>
+                            <p className="grid-subtext">I'm a Software Engineer with a BSc in Computer Science from Eindhoven University of Technology. I enjoy building things that are both technically solid and intuitive to use, and I'm especially drawn to problems where data, systems, and user experience meet.<br /><br />Outside of work, I like experimenting with interactive visuals, exploring new technologies, and understanding how complex systems behave at scale. I value clean design, thoughtful problem-solving, and continuous improvement—both in code and in how I approach challenges.</p>
                         </div>
                     </div>
                 </div>
@@ -45,16 +45,16 @@ const About = () => {
                     <div>
                     <p className="grid-headtext">Tech Stack</p>
                     <p className="grid-subtext">
-                        Skilled in <span className="font-semibold">TypeScript and React</span> for building 
-                        scalable frontend applications, with hands-on experience using 
-                        <span className="font-semibold"> D3.js</span> to implement custom, data-driven 
-                        visualizations for complex datasets. I also have experience with 
-                        <span className="font-semibold"> .NET (C#) and Node.js</span> for backend services, 
-                        alongside <span className="font-semibold">SQL and MongoDB</span> for data storage. 
-                        For infrastructure and delivery, I've worked with <span className="font-semibold">Azure, 
-                        Docker, CI/CD pipelines,</span> and <span className="font-semibold">E2E testing</span> to 
-                        support reliable production deployments. I enjoy exploring 
-                        <span className="font-semibold"> Three.js</span> and motion-driven UI for interactive experiences.
+                        I work mostly in <span className="font-semibold">TypeScript and React</span>, with
+                        Next.js and TanStack, and build AI features with
+                        <span className="font-semibold"> Python, LangGraph, and LangChain</span>, including
+                        tool-calling agents, RAG, and LLM evaluation. On the backend I use
+                        <span className="font-semibold"> Node.js, FastAPI, and .NET</span> with
+                        <span className="font-semibold"> PostgreSQL, SQL Server, MongoDB, and Redis</span>.
+                        For delivery I work with <span className="font-semibold">Azure, Docker, Kubernetes,
+                        and GitHub Actions</span>, and test with <span className="font-semibold">Playwright,
+                        Vitest, and pytest</span>. I also enjoy exploring
+                        <span className="font-semibold"> Three.js and D3.js</span> for interactive visuals.
                     </p>
                     </div>
                 </div>
@@ -91,7 +91,7 @@ const About = () => {
                         <div>
                             <p className='grid-headtext'>
                                 I work remotely across most timezones.</p>
-                            <p className='grid-subtext'>I'm based in Netherlands, with remote work available.</p>
+                            <p className='grid-subtext'>I'm based in the Netherlands, with remote work available.</p>
                             <a href="#contact" className="w-auto px-4 py-2 rounded-lg text-white">
                             <Buttom name="Contact me" isBeam containerClass="w-full mt-10" /> 
                             </a>                           
@@ -103,10 +103,10 @@ const About = () => {
                         <img src='/assets/grid3.png' alt='grid 3' className='w-full sm:h-[266px] h-fit object-contain' />
                         <div>
                             <p className='grid-headtext'>
-                                My Passion for Coding
+                                What I Like Building
                             </p>
                             <p className='grid-subtext'>
-                                I'm a passionate developer who thrives on the challenge of creating innovative solutions that not only meet the needs of users but also tackle complex problems.
+                                Tools that make complex data usable: AI agents that gather evidence and recommend next steps, interactive analytics that reveal bottlenecks, and shared components that help other engineers ship faster.
                             </p>
                         </div>
                     </div>

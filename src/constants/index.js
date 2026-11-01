@@ -54,7 +54,7 @@ export const myProjects = [
       },
       {
         id: 4,
-        name: 'Framer Motion',
+        name: 'Python',
         path: '/assets/pythonLogo.png',
       },
     ],
@@ -144,7 +144,7 @@ export const workExperiences = [
     pos: 'Software Engineer',
     duration: 'Sep 2025 – Present',
     title:
-      'Working on enterprise-scale Process Mining applications used by large customers, contributing to complex, data-heavy frontends built with React, TypeScript, and D3.js. Delivered production-ready features, investigated and fixed critical bugs, and shipped hotfixes directly to live systems under strict reliability requirements. Contributed to maintaining and improving end-to-end test suites and supported stable CI/CD deployments in a large, collaborative engineering environment.',
+      'Building AI agents and data-heavy product features for invoice processing and process mining. Built a Python/LangGraph agent that investigates invoice discrepancies, gathers evidence from finance systems, and drafts supplier communications, and delivered a customer-facing AI assistant with React, TanStack AI, and Claude. Migrated invoice tables and dashboards to server-side pagination and aggregation, removing a 1,000-record reporting limit, and built interactive process-mining analytics with new chart types and drill-downs.',
     icon: '/assets/uipath.png',
     animation: 'victory',
   },
@@ -164,7 +164,7 @@ export const workExperiences = [
     pos: 'Software Engineer',
     duration: 'Apr 2025 – May 2025',
     title:
-      'Led development of CortexConnect, a cloud-based platform managing 300+ ANPR devices. Improved license plate recognition workflows using .NET (C#), Blazor, Azure, and Protobuf for real-time data handling.',
+      'Developed features for CortexConnect, a cloud-based management platform for 300+ automatic number plate recognition devices, using .NET (C#), Blazor, Azure, and Protocol Buffers for device data exchange.',
     icon: '/assets/avutec.png',
     animation: 'salute',
   }
